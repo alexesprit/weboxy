@@ -1,24 +1,24 @@
 # weboxy
 
-## Project setup
-```
-npm install
+Improved web version of [alexesprit/Oxie](https://github.com/alexesprit/Oxie).
+
+## Usage
+
+An online instance is available at [weboxy.vercel.app](https://weboxy.vercel.app/);
+
+## Development
+
+```sh
+# Install dependencies
+> npm install
+
+# Run dev server
+> npm run serve
+
+# Build the project
+> npm run build
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## License
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Licensed under the [MIT License](./LICENSE).
