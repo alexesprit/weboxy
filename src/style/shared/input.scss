@@ -1,0 +1,31 @@
+.form-group {
+	&__label {
+		display: block;
+		margin-bottom: 0.5rem;
+	}
+
+	&__input {
+		border: 0.05rem solid #bcc3ce;
+		border-radius: 0.25rem;
+		color: #3b4c6f;
+		display: block;
+		font-size: 0.8rem;
+		height: 1.6rem;
+		line-height: 1.2rem;
+		max-width: 100%;
+		outline: 0;
+		padding: 0.25rem 0.4rem;
+		transition-duration: 0.3s;
+		transition-property: border, box-shadow, color;
+		width: 100%;
+
+		&:focus {
+			border-color: #3b4c6f;
+			box-shadow: 0 0 0 0.1rem rgba(59, 76, 111, 0.2);
+		}
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 0.75rem;
+	}
+}
