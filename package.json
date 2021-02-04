@@ -13,6 +13,8 @@
   "devDependencies": {
     "@types/chai": "^4.2.11",
     "@types/mocha": "^5.2.4",
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@typescript-eslint/parser": "^4.14.2",
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-plugin-unit-mocha": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
@@ -29,7 +31,10 @@
     "typescript": "^4.1.3"
   },
   "eslintConfig": {
-    "extends": ["web-scrobbler/typescript", "web-scrobbler/vue"]
+    "extends": [
+      "web-scrobbler/typescript",
+      "web-scrobbler/vue"
+    ]
   },
   "prettier": "prettier-config-web-scrobbler"
 }
