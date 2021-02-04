@@ -1,20 +1,17 @@
-import { provide, inject } from 'vue';
+import { provide } from 'vue';
 
-import { OxyPropaneCalculator } from '@/model/OxyPropaneCalculator';
+import { useGenericContext } from '@/provider/UseGenericContext';
 
-const OxyFuelCalculatorProviderSymbol = Symbol('OxyPropaneCalculator');
+import type { OxyFuelCalculator } from '@/model/OxyFuelCalculator';
 
-export function useOxyFuelCalculatorProvider(calculator: OxyPropaneCalculator) {
+const OxyFuelCalculatorProviderSymbol = Symbol('OxyFuelCalculator');
+
+export function useOxyFuelCalculatorProvider(
+	calculator: OxyFuelCalculator
+): void {
 	provide(OxyFuelCalculatorProviderSymbol, calculator);
 }
 
-export function useOxyFuelCalculatorContext(): OxyPropaneCalculator {
-	const dependency = inject(OxyFuelCalculatorProviderSymbol);
-	if (dependency) {
-		return dependency as OxyPropaneCalculator;
-	}
-
-	throw new Error(
-		`${OxyFuelCalculatorProviderSymbol.toString()} dependency is not available`
-	);
+export function useOxyFuelCalculatorContext(): OxyFuelCalculator {
+	return useGenericContext(OxyFuelCalculatorProviderSymbol);
 }
