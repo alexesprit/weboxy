@@ -60,7 +60,7 @@
 		transition: fill 1s;
 
 		:hover > & {
-			fill: #766695;
+			fill: #b8422c;
 		}
 	}
 }
