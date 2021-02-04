@@ -1,6 +1,6 @@
 <template>
 	<div class="row">
-		<div class="col-xs-12 col-sm-6">
+		<div class="group-container col-xs-12 col-sm-6">
 			<input-group>
 				<template v-slot:header>Top flange</template>
 
@@ -12,7 +12,7 @@
 			</input-group>
 		</div>
 
-		<div class="col-xs-12 col-sm-6">
+		<div class="group-container col-xs-12 col-sm-6">
 			<input-group>
 				<template v-slot:header>Bottom flange</template>
 
@@ -26,7 +26,7 @@
 	</div>
 
 	<div class="row">
-		<div class="col-xs-12 col-sm-6">
+		<div class="group-container col-xs-12 col-sm-6">
 			<input-group>
 				<template v-slot:header>Web plates (2 pcs)</template>
 
@@ -43,7 +43,7 @@
 			</input-group>
 		</div>
 
-		<div class="col-xs-12 col-sm-6">
+		<div class="group-container col-xs-12 col-sm-6">
 			<input-group>
 				<template v-slot:header>Girder parameters</template>
 
@@ -96,3 +96,9 @@ export default defineComponent({
 	},
 });
 </script>
+
+<style lang="scss" scoped>
+.group-container {
+	margin-bottom: 1rem;
+}
+</style>

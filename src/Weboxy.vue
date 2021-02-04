@@ -35,13 +35,8 @@ export default defineComponent({
 	padding: 2rem;
 
 	@media (max-width: 48em) {
+		padding: 1.5rem;
 		max-width: 30em;
-	}
-}
-
-.row {
-	&:not(:last-child) {
-		margin-bottom: 1rem;
 	}
 }
 </style>

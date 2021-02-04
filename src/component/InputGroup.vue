@@ -11,13 +11,13 @@
 
 <style lang="scss" scoped>
 .group {
-	border: 1px solid #bcc3ce;
-	border-radius: 0.25rem;
-	padding: 1rem;
-	height: 100%;
+	padding: 0.5rem 0rem;
 
-	&:not(:last-child) {
-		margin-bottom: 1rem;
+	@media (min-width: 48rem) {
+		border: 1px solid #bcc3ce;
+		border-radius: 0.25rem;
+		padding: 1rem;
+		height: 100%;
 	}
 
 	&__header {
