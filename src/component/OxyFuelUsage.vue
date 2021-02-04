@@ -43,10 +43,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 
-import InputGroup from '@/component/InputGroup.vue';
-
 export default defineComponent({
-	components: { InputGroup },
 	props: {
 		oxygenUsage: {
 			type: Number,
