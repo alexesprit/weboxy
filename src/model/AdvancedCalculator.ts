@@ -23,13 +23,13 @@ export class AdvancedCalculator {
 	addFlangeValues(values: FlangeValues): void {
 		const { width, thickness, jointCount } = values;
 
-		this.addCutLength(thickness, width * jointCount * 2);
+		this.addCutLength(thickness, width * jointCount * groovesPerJoint);
 	}
 
 	addWebPlateValues(values: WebPlateValues): void {
 		const { height, jointCount, thickness, length, longSeamCount } = values;
 
-		this.addCutLength(thickness, height * jointCount * 2);
+		this.addCutLength(thickness, height * jointCount * groovesPerJoint);
 		this.addCutLength(thickness, length * longSeamCount);
 	}
 
@@ -64,3 +64,5 @@ export class AdvancedCalculator {
 		this.totalCutWidth.set(thickness, currentCutLength + cutLength);
 	}
 }
+
+const groovesPerJoint = 2;

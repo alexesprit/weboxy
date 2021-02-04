@@ -3,6 +3,8 @@ import { computed, Ref, ref } from 'vue';
 import { AdvancedCalculator } from '@/model/AdvancedCalculator';
 import { OxyFuelCalculator } from '@/model/OxyFuelCalculator';
 
+const webPlatesCount = 2;
+
 export function useAdvancedCalculator(calc: OxyFuelCalculator) {
 	const [topFlangeJointsNumber, topFlangeThickness] = usePlateValues();
 	const [bottomFlangeJointsNumber, bottomFlangeThickness] = usePlateValues();
@@ -15,10 +17,10 @@ export function useAdvancedCalculator(calc: OxyFuelCalculator) {
 
 	const advancedCalculator = new AdvancedCalculator(calc);
 
-	const longSeamCount = computed(() => {
+	const longSeamsNumberPerWebPlate = computed(() => {
 		return (
-			(isFullPenetrationTop.value ? 2 : 0) +
-			(isFullPenetrationBottom.value ? 2 : 0)
+			(isFullPenetrationTop.value ? 1 : 0) +
+			(isFullPenetrationBottom.value ? 1 : 0)
 		);
 	});
 
@@ -44,10 +46,11 @@ export function useAdvancedCalculator(calc: OxyFuelCalculator) {
 		if (webPlateThickness.value > 0) {
 			advancedCalculator.addWebPlateValues({
 				height: girderHeight.value,
-				jointCount: webPlateJointsNumber.value * 2,
+				jointCount: webPlateJointsNumber.value * webPlatesCount,
 				thickness: webPlateThickness.value,
 				length: girderLength.value,
-				longSeamCount: longSeamCount.value,
+				longSeamCount:
+					longSeamsNumberPerWebPlate.value * webPlatesCount,
 			});
 		}
 
