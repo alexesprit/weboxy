@@ -1,6 +1,6 @@
 <template>
 	<div class="row center-xs">
-		<div class="col-xs-12 col-sm-4">
+		<div class="col-xs-4">
 			<div class="usage">
 				<span class="usage__value usage--oxygen">
 					{{ formatResult(oxygenUsage * girdersCount) }}
@@ -11,7 +11,7 @@
 			<div class="label">oxygen</div>
 		</div>
 
-		<div class="col-xs-12 col-sm-4">
+		<div class="col-xs-4">
 			<div class="usage">
 				<span class="usage__value usage--fuel">
 					{{ formatResult(fuelUsage * girdersCount) }}
@@ -22,7 +22,7 @@
 			<div class="label">{{ fuelName }}</div>
 		</div>
 
-		<div class="col-xs-12 col-sm-3">
+		<div class="col-xs-3">
 			<div class="usage">
 				<span
 					class="usage__counter usage--girders"
@@ -80,10 +80,18 @@ export default defineComponent({
 .usage {
 	font-size: 3rem;
 
+	@media (max-width: 48rem) {
+		font-size: 1.5rem;
+	}
+
 	&__counter,
 	&__value {
 		font-size: 4rem;
 		font-weight: 600;
+
+		@media (max-width: 48rem) {
+			font-size: 2rem;
+		}
 	}
 
 	&__counter {
@@ -107,5 +115,9 @@ export default defineComponent({
 	font-size: 1.1rem;
 	margin-top: 0.5rem;
 	text-transform: uppercase;
+
+	@media (max-width: 48rem) {
+		font-size: 0.8rem;
+	}
 }
 </style>
