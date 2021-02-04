@@ -1,11 +1,14 @@
-import { computed, Ref, ref } from 'vue';
+import { computed, ComputedRef, Ref, ref } from 'vue';
 
 import { AdvancedCalculator } from '@/model/AdvancedCalculator';
 import { OxyFuelCalculator } from '@/model/OxyFuelCalculator';
+import { OxyFuelUsage } from '@/model/OxyFuelUsage';
 
 const webPlatesCount = 2;
 
-export function useAdvancedCalculator(calc: OxyFuelCalculator) {
+export function useAdvancedCalculator(
+	calc: OxyFuelCalculator
+): AdvancedCalculatorComposable {
 	const [topFlangeJointsNumber, topFlangeThickness] = usePlateValues();
 	const [bottomFlangeJointsNumber, bottomFlangeThickness] = usePlateValues();
 	const [webPlateJointsNumber, webPlateThickness] = usePlateValues();
@@ -82,6 +85,28 @@ export function useAdvancedCalculator(calc: OxyFuelCalculator) {
 
 		thicknessList,
 	};
+}
+
+interface AdvancedCalculatorComposable {
+	oxyFuelUsage: ComputedRef<OxyFuelUsage>;
+
+	topFlangeJointsNumber: Ref<number>;
+	topFlangeThickness: Ref<number>;
+
+	bottomFlangeJointsNumber: Ref<number>;
+	bottomFlangeThickness: Ref<number>;
+
+	webPlateJointsNumber: Ref<number>;
+	webPlateThickness: Ref<number>;
+
+	girderWidth: Ref<number>;
+	girderHeight: Ref<number>;
+	girderLength: Ref<number>;
+
+	isFullPenetrationTop: Ref<boolean>;
+	isFullPenetrationBottom: Ref<boolean>;
+
+	thicknessList: Ref<ReadonlyArray<number>>;
 }
 
 type PlateValues = [Ref<number>, Ref<number>];
