@@ -49,7 +49,7 @@
 }
 
 .logo {
-	height: 8rem;
+	max-width: 30rem;
 
 	&__text {
 		fill: #212529;
