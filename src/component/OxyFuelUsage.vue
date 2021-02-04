@@ -3,7 +3,7 @@
 		<div class="col-xs-12 col-sm-4">
 			<div class="usage">
 				<span class="usage__value usage--oxygen">
-					{{ (oxygenUsage * girdersCount).toFixed(1) }}
+					{{ formatResult(oxygenUsage * girdersCount) }}
 				</span>
 				kg
 			</div>
@@ -14,7 +14,7 @@
 		<div class="col-xs-12 col-sm-4">
 			<div class="usage">
 				<span class="usage__value usage--fuel">
-					{{ (fuelUsage * girdersCount).toFixed(1) }}
+					{{ formatResult(fuelUsage * girdersCount) }}
 				</span>
 				kg
 			</div>
@@ -64,6 +64,11 @@ export default defineComponent({
 		return { girdersCount: 1 };
 	},
 	methods: {
+		// @ts-ignore
+		formatResult(input) {
+			return parseFloat(input.toFixed(1));
+		},
+
 		toggleGirdersCount() {
 			this.girdersCount = 3 - this.girdersCount;
 		},
