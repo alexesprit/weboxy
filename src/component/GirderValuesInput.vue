@@ -1,20 +1,20 @@
 <template>
 	<custom-input
-		:value="height"
+		:modelValue="height"
 		@input="$emit('update:height', $event.target.value)"
 	>
 		<template v-slot:label>Height (mm)</template>
 	</custom-input>
 
 	<custom-input
-		:value="width"
+		:modelValue="width"
 		@input="$emit('update:width', $event.target.value)"
 	>
 		<template v-slot:label>Width (mm)</template>
 	</custom-input>
 
 	<custom-input
-		:value="length"
+		:modelValue="length"
 		@input="$emit('update:length', $event.target.value)"
 	>
 		<template v-slot:label>Length (mm)</template>

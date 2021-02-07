@@ -1,13 +1,13 @@
 <template>
 	<custom-input
-		:value="jointsNumber"
+		:modelValue="jointsNumber"
 		@input="$emit('update:jointsNumber', $event.target.value)"
 	>
 		<template v-slot:label>Number of joints</template>
 	</custom-input>
 
 	<custom-select
-		:value="thickness"
+		:modelValue="thickness"
 		:options="thicknessList"
 		@input="$emit('update:thickness', $event.target.value)"
 	>
