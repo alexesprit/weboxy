@@ -49,7 +49,7 @@
 }
 
 .logo {
-	max-width: 30rem;
+	max-width: 24rem;
 
 	&__text {
 		fill: #212529;
