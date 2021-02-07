@@ -1,29 +1,58 @@
 <template>
 	<div class="container">
 		<app-header />
-		<advanced-calculator-view fuelGasName="propane" />
+		<app-settings
+			:availableFuels="availableFuels"
+			v-model:fuel="fuel"
+			class="settings"
+		/>
+		<advanced-calculator-view :fuelGasName="fuelName" />
 	</div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { computed, defineComponent, ref } from 'vue';
 
 import AdvancedCalculatorView from '@/view/AdvancedCalculatorView.vue';
+import AppSettings from '@/component/AppSettings.vue';
 import AppHeader from '@/component/AppHeader.vue';
 
+import { FuelType } from '@/model/FuelType';
+
 import { useOxyFuelCalculatorProvider } from '@/provider/OxyFuelCalculatorProvider';
-import { OxyPropaneCalculator } from '@/model/OxyPropaneCalculator';
+import {
+	createOxyFuelCalculator,
+	getAvailableFuels,
+} from '@/model/OxyFuelCalculatorFactory';
+
+const defaultFuel = FuelType.Propane;
 
 export default defineComponent({
 	components: {
 		AdvancedCalculatorView,
+		AppSettings,
 		AppHeader,
 	},
 
 	setup() {
-		useOxyFuelCalculatorProvider(new OxyPropaneCalculator());
+		const { fuel, fuelName, availableFuels } = useFuel();
+
+		const calculator = computed(() => {
+			return createOxyFuelCalculator(fuel.value);
+		});
+		useOxyFuelCalculatorProvider(calculator);
+
+		return { fuel, fuelName, availableFuels };
 	},
 });
+
+function useFuel() {
+	const fuel = ref(defaultFuel);
+	const fuelName = computed(() => fuel.value);
+	const availableFuels = getAvailableFuels();
+
+	return { fuel, fuelName, availableFuels };
+}
 </script>
 
 <style lang="scss">
@@ -38,5 +67,9 @@ export default defineComponent({
 		padding: 1.5rem;
 		max-width: 30em;
 	}
+}
+
+.settings {
+	margin-bottom: 1rem;
 }
 </style>

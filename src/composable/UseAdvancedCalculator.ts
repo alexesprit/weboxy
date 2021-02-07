@@ -1,13 +1,14 @@
 import { computed, ComputedRef, Ref, ref } from 'vue';
 
 import { AdvancedCalculator } from '@/model/AdvancedCalculator';
-import { OxyFuelCalculator } from '@/model/OxyFuelCalculator';
-import { OxyFuelUsage } from '@/model/OxyFuelUsage';
+
+import type { OxyFuelCalculator } from '@/model/OxyFuelCalculator';
+import type { OxyFuelUsage } from '@/model/OxyFuelUsage';
 
 const webPlatesCount = 2;
 
 export function useAdvancedCalculator(
-	calc: OxyFuelCalculator
+	calc: Ref<OxyFuelCalculator>
 ): AdvancedCalculatorComposable {
 	const [topFlangeJointsNumber, topFlangeThickness] = usePlateValues();
 	const [bottomFlangeJointsNumber, bottomFlangeThickness] = usePlateValues();
@@ -18,7 +19,9 @@ export function useAdvancedCalculator(
 	const isFullPenetrationTop = ref(false);
 	const isFullPenetrationBottom = ref(false);
 
-	const advancedCalculator = new AdvancedCalculator(calc);
+	const advancedCalculator = computed(
+		() => new AdvancedCalculator(calc.value)
+	);
 
 	const longSeamsNumberPerWebPlate = computed(() => {
 		return (
@@ -28,10 +31,10 @@ export function useAdvancedCalculator(
 	});
 
 	const oxyFuelUsage = computed(() => {
-		advancedCalculator.reset();
+		advancedCalculator.value.reset();
 
 		if (topFlangeThickness.value > 0) {
-			advancedCalculator.addFlangeValues({
+			advancedCalculator.value.addFlangeValues({
 				width: girderWidth.value,
 				jointCount: topFlangeJointsNumber.value,
 				thickness: topFlangeThickness.value,
@@ -39,7 +42,7 @@ export function useAdvancedCalculator(
 		}
 
 		if (bottomFlangeThickness.value > 0) {
-			advancedCalculator.addFlangeValues({
+			advancedCalculator.value.addFlangeValues({
 				width: girderWidth.value,
 				jointCount: bottomFlangeJointsNumber.value,
 				thickness: bottomFlangeThickness.value,
@@ -47,7 +50,7 @@ export function useAdvancedCalculator(
 		}
 
 		if (webPlateThickness.value > 0) {
-			advancedCalculator.addWebPlateValues({
+			advancedCalculator.value.addWebPlateValues({
 				height: girderHeight.value,
 				jointCount: webPlateJointsNumber.value * webPlatesCount,
 				thickness: webPlateThickness.value,
@@ -57,11 +60,11 @@ export function useAdvancedCalculator(
 			});
 		}
 
-		return advancedCalculator.calculateUsage();
+		return advancedCalculator.value.calculateUsage();
 	});
 
 	const thicknessList = computed(() =>
-		advancedCalculator.getThicknessSupported()
+		advancedCalculator.value.getThicknessSupported()
 	);
 
 	return {

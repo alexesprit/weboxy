@@ -92,7 +92,8 @@ export default defineComponent({
 	},
 
 	setup() {
-		return useAdvancedCalculator(useOxyFuelCalculatorContext());
+		const calculatorRef = useOxyFuelCalculatorContext();
+		return useAdvancedCalculator(calculatorRef);
 	},
 });
 </script>
