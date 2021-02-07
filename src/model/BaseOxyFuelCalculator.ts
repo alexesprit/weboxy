@@ -19,8 +19,10 @@ export class BaseOxyFuelCalculator implements OxyFuelCalculator {
 		}
 
 		const oxygenFactor =
-			this.oxygenFactors[thickness] * oxygenConversionFactor;
-		const fuelFactor = this.fuelFactors[thickness];
+			this.oxygenFactors[thickness] *
+			oxygenConversionFactor *
+			startCuttingFactor;
+		const fuelFactor = this.fuelFactors[thickness] * startCuttingFactor;
 
 		const oxygen = (cutLength * oxygenFactor) / 1000;
 		const fuel = (cutLength * fuelFactor) / 1000;
@@ -36,3 +38,4 @@ export class BaseOxyFuelCalculator implements OxyFuelCalculator {
 }
 
 const oxygenConversionFactor = 1.33;
+const startCuttingFactor = 1.2;
