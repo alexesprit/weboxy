@@ -4,7 +4,7 @@
 			:value="fullPenetrationTop"
 			@input="$emit('update:fullPenetrationTop', $event.target.checked)"
 		>
-			<template v-slot:label>Full penetration (top)</template>
+			<template v-slot:label>{{ $t('full-pen-top') }}</template>
 		</custom-checkbox>
 	</div>
 
@@ -15,7 +15,7 @@
 				$emit('update:fullPenetrationBottom', $event.target.checked)
 			"
 		>
-			<template v-slot:label>Full penetration (bottom)</template>
+			<template v-slot:label>{{ $t('full-pen-bottom') }}</template>
 		</custom-checkbox>
 	</div>
 </template>

@@ -8,7 +8,7 @@
 			v-model="inputValue"
 			@input="$emit('update:modelValue', $event.target.value)"
 		>
-			<option disabled value="0">Select</option>
+			<option disabled value="0">{{ $t('select-value') }}</option>
 			<option
 				v-for="option in options"
 				:key="option"

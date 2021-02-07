@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="group-container col-xs-12 col-sm-6">
 			<input-group>
-				<template v-slot:header>Top flange</template>
+				<template v-slot:header>{{ $t('top-flange') }}</template>
 
 				<flange-values-input
 					v-model:jointsNumber.number="topFlangeJointsNumber"
@@ -14,7 +14,7 @@
 
 		<div class="group-container col-xs-12 col-sm-6">
 			<input-group>
-				<template v-slot:header>Bottom flange</template>
+				<template v-slot:header>{{ $t('bottom-flange') }}</template>
 
 				<flange-values-input
 					v-model:jointsNumber.number="bottomFlangeJointsNumber"
@@ -28,7 +28,7 @@
 	<div class="row">
 		<div class="group-container col-xs-12 col-sm-6">
 			<input-group>
-				<template v-slot:header>Web plates (2 pcs)</template>
+				<template v-slot:header>{{ $t('web-plates') }}</template>
 
 				<flange-values-input
 					v-model:jointsNumber.number="webPlateJointsNumber"
@@ -45,7 +45,7 @@
 
 		<div class="group-container col-xs-12 col-sm-6">
 			<input-group>
-				<template v-slot:header>Girder parameters</template>
+				<template v-slot:header>{{ $t('girder-parameters') }}</template>
 
 				<girder-values-input
 					v-model:width.number="girderWidth"

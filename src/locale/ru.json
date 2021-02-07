@@ -1,0 +1,22 @@
+{
+  "top-flange": "Верхний пояс",
+  "bottom-flange": "Нижний пояс",
+  "web-plates": "Стенки (2 шт)",
+  "girder-parameters": "Размеры балки",
+  "joints-number": "Количество стыков",
+  "thickness": "Толщина",
+  "full-pen-top": "Полный провар (верх)",
+  "full-pen-bottom": "Полный провар (низ)",
+  "height": "Высота",
+  "width": "Ширина",
+  "length": "Длина",
+  "oxygen": "кислород",
+  "propane": "пропан",
+  "acetylene": "ацетилен",
+  "kg": "кг",
+  "mm": "мм",
+  "settings": "Настройки",
+  "fuel-gas": "Горючий газ",
+  "select-value": "Выберите значение",
+  "girders": "балка | балки"
+}

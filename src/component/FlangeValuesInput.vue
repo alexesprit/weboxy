@@ -3,7 +3,7 @@
 		:modelValue="jointsNumber"
 		@input="$emit('update:jointsNumber', $event.target.value)"
 	>
-		<template v-slot:label>Number of joints</template>
+		<template v-slot:label>{{ $t('joints-number') }}</template>
 	</custom-input>
 
 	<custom-select
@@ -11,7 +11,7 @@
 		:options="thicknessList"
 		@input="$emit('update:thickness', $event.target.value)"
 	>
-		<template v-slot:label>Thickness (mm)</template>
+		<template v-slot:label>{{ $t('thickness') }} ({{ $t('mm') }})</template>
 	</custom-select>
 </template>
 

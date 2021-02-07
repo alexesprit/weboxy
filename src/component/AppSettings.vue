@@ -1,13 +1,13 @@
 <template>
 	<input-group>
-		<template v-slot:header>Settings</template>
+		<template v-slot:header>{{ $t('settings') }}</template>
 
 		<custom-select
 			:options="availableFuels"
 			:modelValue="fuel"
 			@input="$emit('update:fuel', $event.target.value)"
 		>
-			<template v-slot:label>Fuel gas</template>
+			<template v-slot:label>{{ $t('fuel-gas') }}</template>
 		</custom-select>
 	</input-group>
 </template>

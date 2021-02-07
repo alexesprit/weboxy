@@ -5,10 +5,10 @@
 				<span class="usage__value usage--oxygen">
 					{{ formatResult(oxygenUsage * girdersCount) }}
 				</span>
-				kg
+				{{ $t('kg') }}
 			</div>
 
-			<div class="label">oxygen</div>
+			<div class="label">{{ $t('oxygen') }}</div>
 		</div>
 
 		<div class="col-xs-4">
@@ -16,10 +16,10 @@
 				<span class="usage__value usage--fuel">
 					{{ formatResult(fuelUsage * girdersCount) }}
 				</span>
-				kg
+				{{ $t('kg') }}
 			</div>
 
-			<div class="label">{{ fuelName }}</div>
+			<div class="label">{{ $t(fuelName) }}</div>
 		</div>
 
 		<div class="col-xs-3">
@@ -33,7 +33,7 @@
 			</div>
 
 			<div class="label">
-				{{ girdersCount === 1 ? 'girder' : 'girders' }}
+				{{ $tc('girders', girdersCount) }}
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,22 @@
+{
+  "top-flange": "Top flange",
+  "bottom-flange": "Bottom flange",
+  "web-plates": "Web plates (2 pcs)",
+  "girder-parameters": "Girder parameters",
+  "joints-number": "Number of joints",
+  "thickness": "Thickness",
+  "full-pen-top": "Full penetration (top)",
+  "full-pen-bottom": "Full penetration (bottom)",
+  "height": "Height",
+  "width": "Width",
+  "length": "Length",
+  "oxygen": "oxygen",
+  "propane": "propane",
+  "acetylene": "acetylene",
+  "kg": "kg",
+  "mm": "mm",
+  "settings": "Settings",
+  "fuel-gas": "Fuel gas",
+  "select-value": "Select value",
+  "girders": "girder | girders"
+}

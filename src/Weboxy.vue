@@ -24,6 +24,7 @@ import {
 	createOxyFuelCalculator,
 	getAvailableFuels,
 } from '@/model/OxyFuelCalculatorFactory';
+import { useI18n } from 'vue-i18n';
 
 const defaultFuel = FuelType.Propane;
 
@@ -35,7 +36,8 @@ export default defineComponent({
 	},
 
 	setup() {
-		const { fuel, fuelName, availableFuels } = useFuel();
+		const { fuel, fuelName } = useFuel();
+		const { availableFuels } = useAvalableFuels();
 
 		const calculator = computed(() => {
 			return createOxyFuelCalculator(fuel.value);
@@ -49,9 +51,18 @@ export default defineComponent({
 function useFuel() {
 	const fuel = ref(defaultFuel);
 	const fuelName = computed(() => fuel.value);
-	const availableFuels = getAvailableFuels();
 
-	return { fuel, fuelName, availableFuels };
+	return { fuel, fuelName };
+}
+
+function useAvalableFuels() {
+	const { t } = useI18n();
+
+	const availableFuels = getAvailableFuels().map((fuel) => {
+		return { name: t(fuel), value: fuel };
+	});
+
+	return { availableFuels };
 }
 </script>
 
