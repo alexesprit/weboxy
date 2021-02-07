@@ -9,8 +9,12 @@
 			@input="$emit('update:modelValue', $event.target.value)"
 		>
 			<option disabled value="0">Select</option>
-			<option v-for="option in options" :key="option">
-				{{ option }}
+			<option
+				v-for="option in options"
+				:key="option"
+				:value="option.value || option"
+			>
+				{{ option.name || option }}
 			</option>
 		</select>
 	</div>
