@@ -36,8 +36,6 @@ export class AdvancedCalculator {
 	calculateUsage(): OxyFuelUsage {
 		const totalUsage = { oxygen: 0, fuel: 0 };
 
-		console.log(this.totalCutWidth.entries());
-
 		for (const [thickness, cutLength] of this.totalCutWidth.entries()) {
 			const usage = this.oxyFuelCalculator.calculateUsage(
 				thickness,
